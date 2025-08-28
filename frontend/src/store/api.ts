@@ -35,24 +35,26 @@ export const superheroApi = createApi({
       providesTags: ['Superhero'],
     }),
 
-    createSuperhero: builder.mutation<Superhero, Partial<Superhero> & { image?: File | undefined }>({
-      query: (body) => {
-        const formData = new FormData();
-        formData.append('nickname', body.nickname!);
-        formData.append('real_name', body.real_name!);
-        formData.append('origin_description', body.origin_description!);
-        formData.append('superpowers', JSON.stringify(body.superpowers || []));
-        formData.append('catch_phrase', body.catch_phrase!);
-        if (body.image) formData.append('image', body.image);
+    createSuperhero: builder.mutation<Superhero, Partial<Superhero> & { image?: File | undefined }>(
+      {
+        query: (body) => {
+          const formData = new FormData();
+          formData.append('nickname', body.nickname!);
+          formData.append('real_name', body.real_name!);
+          formData.append('origin_description', body.origin_description!);
+          formData.append('superpowers', JSON.stringify(body.superpowers || []));
+          formData.append('catch_phrase', body.catch_phrase!);
+          if (body.image) formData.append('image', body.image);
 
-        return {
-          url: 'superheroes',
-          method: 'POST',
-          body: formData,
-        };
+          return {
+            url: 'superheroes',
+            method: 'POST',
+            body: formData,
+          };
+        },
+        invalidatesTags: ['Superhero'],
       },
-      invalidatesTags: ['Superhero'],
-    }),
+    ),
 
     updateSuperhero: builder.mutation<
       Superhero,

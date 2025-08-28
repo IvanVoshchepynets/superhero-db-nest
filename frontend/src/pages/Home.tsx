@@ -27,10 +27,7 @@ const Home = () => {
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Superheroes List</h1>
-        <Link
-          to="/create"
-          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-        >
+        <Link to="/create" className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
           Create Hero
         </Link>
       </div>

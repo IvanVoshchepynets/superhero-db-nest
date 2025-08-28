@@ -7,12 +7,12 @@ import './index.css';
 
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/create" element={<CreateHero />} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/create" element={<CreateHero />} />
       <Route path="/superheroes/:id" element={<HeroDetails />} />
       <Route path="/edit/:id" element={<EditHero />} />
-      </Routes>
+    </Routes>
   );
 }
 

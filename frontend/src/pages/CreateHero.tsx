@@ -16,7 +16,10 @@ const CreateHero = () => {
 
   const [imageFile, setImageFile] = useState<File | undefined>(undefined);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index?: number) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    index?: number,
+  ) => {
     const { name, value } = e.target;
     if (name === 'superpowers' && typeof index === 'number') {
       const newPowers = [...form.superpowers];
@@ -85,7 +88,11 @@ const CreateHero = () => {
                 className="border p-2 flex-1"
                 required
               />
-              <button type="button" onClick={() => removeSuperpower(i)} className="ml-2 text-red-500">
+              <button
+                type="button"
+                onClick={() => removeSuperpower(i)}
+                className="ml-2 text-red-500"
+              >
                 &times;
               </button>
             </div>

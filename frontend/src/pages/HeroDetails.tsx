@@ -49,7 +49,9 @@ const HeroDetails = () => {
 
   return (
     <div className="p-4">
-      <Link to="/" className="text-blue-500 underline">Back to list</Link>
+      <Link to="/" className="text-blue-500 underline">
+        Back to list
+      </Link>
       <h1 className="text-3xl font-bold mt-4">{hero.nickname}</h1>
       <p className="text-gray-700 mt-2">Real name: {hero.real_name}</p>
       <p className="mt-2">{hero.origin_description}</p>
@@ -57,14 +59,14 @@ const HeroDetails = () => {
       <p className="mt-2 font-semibold">Catch phrase: {hero.catch_phrase}</p>
 
       <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
-        {hero.images.map(img => (
-  <img
-    key={img.id}
-    src={`http://localhost:4000/uploads/${img.url}`}
-    alt={hero.nickname}
-    className="mt-2 w-full h-48 object-contain rounded bg-white"
-  />
-))}
+        {hero.images.map((img) => (
+          <img
+            key={img.id}
+            src={`http://localhost:4000/uploads/${img.url}`}
+            alt={hero.nickname}
+            className="mt-2 w-full h-48 object-contain rounded bg-white"
+          />
+        ))}
       </div>
 
       <button

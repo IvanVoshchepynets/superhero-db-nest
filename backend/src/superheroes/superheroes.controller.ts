@@ -43,15 +43,12 @@ export class SuperheroesController {
     console.log('Uploaded file:', file);
 
     const imageFilename = file ? file.filename : undefined;
-    return this.superheroesService.create(data, imageFilename);
+    return await this.superheroesService.create(data, imageFilename);
   }
 
   @Get()
-  async findAll(
-    @Query('page') page: string,
-    @Query('limit') limit: string,
-  ) {
-    return this.superheroesService.findAll(
+  async findAll(@Query('page') page: string, @Query('limit') limit: string) {
+    return await this.superheroesService.findAll(
       Number(page) || 1,
       Number(limit) || 5,
     );
@@ -59,7 +56,7 @@ export class SuperheroesController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    return this.superheroesService.findOne(Number(id));
+    return await this.superheroesService.findOne(Number(id));
   }
 
   @Put(':id')
@@ -81,11 +78,15 @@ export class SuperheroesController {
     @UploadedFile() file?: Express.Multer.File,
   ) {
     const imageFilename = file ? file.filename : undefined;
-    return this.superheroesService.update(Number(id), data, imageFilename);
+    return await this.superheroesService.update(
+      Number(id),
+      data,
+      imageFilename,
+    );
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    return this.superheroesService.remove(Number(id));
+    return await this.superheroesService.remove(Number(id));
   }
 }

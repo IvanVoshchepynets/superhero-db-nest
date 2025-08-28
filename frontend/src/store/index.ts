@@ -5,8 +5,7 @@ export const store = configureStore({
   reducer: {
     [superheroApi.reducerPath]: superheroApi.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(superheroApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(superheroApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
